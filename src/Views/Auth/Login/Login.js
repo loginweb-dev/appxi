@@ -19,6 +19,7 @@ import { GoogleSignin } from '@react-native-community/google-signin';
 import BackgroundColor from "../../../UI/BackgroundColor";
 import TextInputAlt from "../../../UI/TextInputAlt";
 import ButtonBlock from "../../../UI/ButtonBlock";
+import ClearFix from "../../../UI/ClearFix";
 
 GoogleSignin.configure({
     scopes: ['https://www.googleapis.com/auth/drive.readonly'],
@@ -125,7 +126,7 @@ class Login extends Component {
                     title='Login'
                     backgroundColor='transparent'
                 />
-                <ScrollView style={{ paddingTop: 20 }} showsVerticalScrollIndicator={false}>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={ styles.form }>
                         <TextInputAlt
                             label='Email'
@@ -183,6 +184,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2A80DB'
     },
     form:{
+        flex: 1,
         paddingTop: 20,
         backgroundColor: '#fff',
         borderTopRightRadius: 20,

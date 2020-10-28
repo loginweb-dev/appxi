@@ -1,5 +1,5 @@
 {
-  "name": "AppxiDriver",
+  "name": "Appxi",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -26,7 +26,9 @@
     "react-native-fbsdk": "^2.0.0",
     "react-native-flash-message": "^0.1.16",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-google-places-autocomplete": "^2.0.3",
     "react-native-maps": "0.27.1",
+    "react-native-maps-directions": "^1.8.0",
     "react-native-reanimated": "^1.13.1",
     "react-native-rename": "^2.5.0",
     "react-native-safe-area-context": "^3.1.8",

@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* AppxiDriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AppxiDriverTests.m */; };
+		00E356F31AD99517003FC87E /* AppxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AppxiTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		16ED53DCFD6B1C928DF1020C /* libPods-AppxiDriver-AppxiDriverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCCD74AC77DC440036249F /* libPods-AppxiDriver-AppxiDriverTests.a */; };
-		1CD8728137BB61C29E935E2D /* libPods-AppxiDriver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F722C403E3C38A3DB9E6E9 /* libPods-AppxiDriver.a */; };
+		16ED53DCFD6B1C928DF1020C /* libPods-Appxi-AppxiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCCD74AC77DC440036249F /* libPods-Appxi-AppxiTests.a */; };
+		1CD8728137BB61C29E935E2D /* libPods-Appxi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F722C403E3C38A3DB9E6E9 /* libPods-Appxi.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* AppxiDriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AppxiDriverTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* AppxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AppxiTests.m */; };
 		2E876A525BF44CD39537B48C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39AE1F46C424402CB8EA33A3 /* FontAwesome5_Solid.ttf */; };
 		36605BC9EA7B4F56BD31E5DD /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC0651215C24357836548BA /* Zocial.ttf */; };
 		574E85457CCA49988FB0866A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C90A52F840453289D8B81D /* Foundation.ttf */; };
-		62A08A8B4D249F8514408F8B /* libPods-AppxiDriver-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19033D86B5131CEEF277F3EE /* libPods-AppxiDriver-tvOSTests.a */; };
+		62A08A8B4D249F8514408F8B /* libPods-Appxi-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19033D86B5131CEEF277F3EE /* libPods-Appxi-tvOSTests.a */; };
 		6C2FA2317B444E04B09E3241 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0AC6C092840A3BD0D5E08 /* SimpleLineIcons.ttf */; };
 		79396420E9C241AB9944E540 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C443F0E45CE4E0BBF28F563 /* AntDesign.ttf */; };
 		7C86A6B31E6E41C1948A4148 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E66135CFF694DADA64BF900 /* FontAwesome5_Regular.ttf */; };
@@ -30,7 +30,7 @@
 		998DF2B9A4C747FD84451CB9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E478A748BAAE4851A58D0F02 /* Ionicons.ttf */; };
 		9E6FFA4650404555A022C73F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6E212020D0D403D8C98CDE6 /* Feather.ttf */; };
 		A4A522D9E3FD4B0991B77BB9 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E674CA0450B7494A8B0D1717 /* Fontisto.ttf */; };
-		A5D3056B8A1B6373700E3E1E /* libPods-AppxiDriver-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE83691F1677C079BBD0C6A /* libPods-AppxiDriver-tvOS.a */; };
+		A5D3056B8A1B6373700E3E1E /* libPods-Appxi-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE83691F1677C079BBD0C6A /* libPods-Appxi-tvOS.a */; };
 		B4F3A43E309843D6A725CC34 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88B1AAB41C11464B9751F171 /* Octicons.ttf */; };
 		C14C1E05F25140E5A53F222A /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDADAE75A0C644118EE2DA53 /* MaterialCommunityIcons.ttf */; };
 		D0C344B2D42D4D6980AAF6C9 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB67F21FB2544E8D9C488D05 /* EvilIcons.ttf */; };
@@ -44,55 +44,55 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = AppxiDriver;
+			remoteInfo = Appxi;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "AppxiDriver-tvOS";
+			remoteInfo = "Appxi-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* AppxiDriverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppxiDriverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* AppxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* AppxiDriverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppxiDriverTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* AppxiDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppxiDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppxiDriver/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppxiDriver/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AppxiDriver/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AppxiDriver/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AppxiDriver/main.m; sourceTree = "<group>"; };
-		19033D86B5131CEEF277F3EE /* libPods-AppxiDriver-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppxiDriver-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E47B1E0B4A5D006451C7 /* AppxiDriver-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppxiDriver-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* AppxiDriver-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AppxiDriver-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D2AB04D8688A3FB5EFF153C /* Pods-AppxiDriver-AppxiDriverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-AppxiDriverTests.release.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-AppxiDriverTests/Pods-AppxiDriver-AppxiDriverTests.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* AppxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppxiTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Appxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Appxi/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Appxi/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Appxi/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Appxi/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Appxi/main.m; sourceTree = "<group>"; };
+		19033D86B5131CEEF277F3EE /* libPods-Appxi-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Appxi-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* Appxi-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appxi-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Appxi-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appxi-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D2AB04D8688A3FB5EFF153C /* Pods-Appxi-AppxiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-AppxiTests.release.xcconfig"; path = "Target Support Files/Pods-Appxi-AppxiTests/Pods-Appxi-AppxiTests.release.xcconfig"; sourceTree = "<group>"; };
 		39AE1F46C424402CB8EA33A3 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		3AB78A54CAAFC7726F39FAF7 /* Pods-AppxiDriver-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-tvOSTests/Pods-AppxiDriver-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		3AB78A54CAAFC7726F39FAF7 /* Pods-Appxi-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Appxi-tvOSTests/Pods-Appxi-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C443F0E45CE4E0BBF28F563 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		481501D2D469C2FA5317C8DB /* Pods-AppxiDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver.release.xcconfig"; path = "Target Support Files/Pods-AppxiDriver/Pods-AppxiDriver.release.xcconfig"; sourceTree = "<group>"; };
+		481501D2D469C2FA5317C8DB /* Pods-Appxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi.release.xcconfig"; path = "Target Support Files/Pods-Appxi/Pods-Appxi.release.xcconfig"; sourceTree = "<group>"; };
 		550628B48AAD44E6BE8ECC69 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		5CE83691F1677C079BBD0C6A /* libPods-AppxiDriver-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppxiDriver-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		645A01F4B3D4361E74E26510 /* Pods-AppxiDriver-AppxiDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-AppxiDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-AppxiDriverTests/Pods-AppxiDriver-AppxiDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5CE83691F1677C079BBD0C6A /* libPods-Appxi-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Appxi-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		645A01F4B3D4361E74E26510 /* Pods-Appxi-AppxiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-AppxiTests.debug.xcconfig"; path = "Target Support Files/Pods-Appxi-AppxiTests/Pods-Appxi-AppxiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BF0AC6C092840A3BD0D5E08 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		6E66135CFF694DADA64BF900 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		7DC09C43455E4F79A2F1A29F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AppxiDriver/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Appxi/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B1AAB41C11464B9751F171 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		89C90A52F840453289D8B81D /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		8EC0651215C24357836548BA /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		92EA8402DE4396196037AE8D /* Pods-AppxiDriver-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-tvOS/Pods-AppxiDriver-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		95ACBA34476CC11E08950E0D /* Pods-AppxiDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver.debug.xcconfig"; path = "Target Support Files/Pods-AppxiDriver/Pods-AppxiDriver.debug.xcconfig"; sourceTree = "<group>"; };
+		92EA8402DE4396196037AE8D /* Pods-Appxi-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Appxi-tvOS/Pods-Appxi-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		95ACBA34476CC11E08950E0D /* Pods-Appxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi.debug.xcconfig"; path = "Target Support Files/Pods-Appxi/Pods-Appxi.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6A5B8750064CAA94ED7701 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		A1409F5EAC084B2E84762652 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		AB67F21FB2544E8D9C488D05 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		B1C01620C4AF0265B8CCCE4B /* Pods-AppxiDriver-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-tvOS/Pods-AppxiDriver-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B36E6383EF071770CE24D50D /* Pods-AppxiDriver-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppxiDriver-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-AppxiDriver-tvOSTests/Pods-AppxiDriver-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C1F722C403E3C38A3DB9E6E9 /* libPods-AppxiDriver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppxiDriver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9DCCD74AC77DC440036249F /* libPods-AppxiDriver-AppxiDriverTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppxiDriver-AppxiDriverTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1C01620C4AF0265B8CCCE4B /* Pods-Appxi-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Appxi-tvOS/Pods-Appxi-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B36E6383EF071770CE24D50D /* Pods-Appxi-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appxi-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Appxi-tvOSTests/Pods-Appxi-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1F722C403E3C38A3DB9E6E9 /* libPods-Appxi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Appxi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9DCCD74AC77DC440036249F /* libPods-Appxi-AppxiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Appxi-AppxiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E478A748BAAE4851A58D0F02 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E674CA0450B7494A8B0D1717 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -106,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED53DCFD6B1C928DF1020C /* libPods-AppxiDriver-AppxiDriverTests.a in Frameworks */,
+				16ED53DCFD6B1C928DF1020C /* libPods-Appxi-AppxiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD8728137BB61C29E935E2D /* libPods-AppxiDriver.a in Frameworks */,
+				1CD8728137BB61C29E935E2D /* libPods-Appxi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D3056B8A1B6373700E3E1E /* libPods-AppxiDriver-tvOS.a in Frameworks */,
+				A5D3056B8A1B6373700E3E1E /* libPods-Appxi-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,20 +130,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62A08A8B4D249F8514408F8B /* libPods-AppxiDriver-tvOSTests.a in Frameworks */,
+				62A08A8B4D249F8514408F8B /* libPods-Appxi-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* AppxiDriverTests */ = {
+		00E356EF1AD99517003FC87E /* AppxiTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* AppxiDriverTests.m */,
+				00E356F21AD99517003FC87E /* AppxiTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = AppxiDriverTests;
+			path = AppxiTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -154,7 +154,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* AppxiDriver */ = {
+		13B07FAE1A68108700A75B9A /* Appxi */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -165,7 +165,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = AppxiDriver;
+			name = Appxi;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -173,10 +173,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				C1F722C403E3C38A3DB9E6E9 /* libPods-AppxiDriver.a */,
-				C9DCCD74AC77DC440036249F /* libPods-AppxiDriver-AppxiDriverTests.a */,
-				5CE83691F1677C079BBD0C6A /* libPods-AppxiDriver-tvOS.a */,
-				19033D86B5131CEEF277F3EE /* libPods-AppxiDriver-tvOSTests.a */,
+				C1F722C403E3C38A3DB9E6E9 /* libPods-Appxi.a */,
+				C9DCCD74AC77DC440036249F /* libPods-Appxi-AppxiTests.a */,
+				5CE83691F1677C079BBD0C6A /* libPods-Appxi-tvOS.a */,
+				19033D86B5131CEEF277F3EE /* libPods-Appxi-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* AppxiDriver */,
+				13B07FAE1A68108700A75B9A /* Appxi */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* AppxiDriverTests */,
+				00E356EF1AD99517003FC87E /* AppxiTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				75096DF5EF864EB98C72AB30 /* Resources */,
@@ -231,10 +231,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* AppxiDriver.app */,
-				00E356EE1AD99517003FC87E /* AppxiDriverTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* AppxiDriver-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* AppxiDriver-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Appxi.app */,
+				00E356EE1AD99517003FC87E /* AppxiTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Appxi-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Appxi-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,14 +242,14 @@
 		FC761A1AB354C3858187ECCE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95ACBA34476CC11E08950E0D /* Pods-AppxiDriver.debug.xcconfig */,
-				481501D2D469C2FA5317C8DB /* Pods-AppxiDriver.release.xcconfig */,
-				645A01F4B3D4361E74E26510 /* Pods-AppxiDriver-AppxiDriverTests.debug.xcconfig */,
-				2D2AB04D8688A3FB5EFF153C /* Pods-AppxiDriver-AppxiDriverTests.release.xcconfig */,
-				B1C01620C4AF0265B8CCCE4B /* Pods-AppxiDriver-tvOS.debug.xcconfig */,
-				92EA8402DE4396196037AE8D /* Pods-AppxiDriver-tvOS.release.xcconfig */,
-				B36E6383EF071770CE24D50D /* Pods-AppxiDriver-tvOSTests.debug.xcconfig */,
-				3AB78A54CAAFC7726F39FAF7 /* Pods-AppxiDriver-tvOSTests.release.xcconfig */,
+				95ACBA34476CC11E08950E0D /* Pods-Appxi.debug.xcconfig */,
+				481501D2D469C2FA5317C8DB /* Pods-Appxi.release.xcconfig */,
+				645A01F4B3D4361E74E26510 /* Pods-Appxi-AppxiTests.debug.xcconfig */,
+				2D2AB04D8688A3FB5EFF153C /* Pods-Appxi-AppxiTests.release.xcconfig */,
+				B1C01620C4AF0265B8CCCE4B /* Pods-Appxi-tvOS.debug.xcconfig */,
+				92EA8402DE4396196037AE8D /* Pods-Appxi-tvOS.release.xcconfig */,
+				B36E6383EF071770CE24D50D /* Pods-Appxi-tvOSTests.debug.xcconfig */,
+				3AB78A54CAAFC7726F39FAF7 /* Pods-Appxi-tvOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* AppxiDriverTests */ = {
+		00E356ED1AD99517003FC87E /* AppxiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AppxiDriverTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AppxiTests" */;
 			buildPhases = (
 				09346DEA7500DB4D600E4A3C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -273,14 +273,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = AppxiDriverTests;
-			productName = AppxiDriverTests;
-			productReference = 00E356EE1AD99517003FC87E /* AppxiDriverTests.xctest */;
+			name = AppxiTests;
+			productName = AppxiTests;
+			productReference = 00E356EE1AD99517003FC87E /* AppxiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* AppxiDriver */ = {
+		13B07F861A680F5B00A75B9A /* Appxi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AppxiDriver" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Appxi" */;
 			buildPhases = (
 				527D648F368A1B21182DA59D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -295,14 +295,14 @@
 			);
 			dependencies = (
 			);
-			name = AppxiDriver;
-			productName = AppxiDriver;
-			productReference = 13B07F961A680F5B00A75B9A /* AppxiDriver.app */;
+			name = Appxi;
+			productName = Appxi;
+			productReference = 13B07F961A680F5B00A75B9A /* Appxi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* AppxiDriver-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Appxi-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AppxiDriver-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Appxi-tvOS" */;
 			buildPhases = (
 				B2339043ED1F5B31D31AEF2A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -315,14 +315,14 @@
 			);
 			dependencies = (
 			);
-			name = "AppxiDriver-tvOS";
-			productName = "AppxiDriver-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* AppxiDriver-tvOS.app */;
+			name = "Appxi-tvOS";
+			productName = "Appxi-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Appxi-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* AppxiDriver-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Appxi-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AppxiDriver-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Appxi-tvOSTests" */;
 			buildPhases = (
 				4ED9C33AED9B2F0B01F1A704 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -334,9 +334,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "AppxiDriver-tvOSTests";
-			productName = "AppxiDriver-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* AppxiDriver-tvOSTests.xctest */;
+			name = "Appxi-tvOSTests";
+			productName = "Appxi-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Appxi-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -378,10 +378,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* AppxiDriver */,
-				00E356ED1AD99517003FC87E /* AppxiDriverTests */,
-				2D02E47A1E0B4A5D006451C7 /* AppxiDriver-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* AppxiDriver-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* Appxi */,
+				00E356ED1AD99517003FC87E /* AppxiTests */,
+				2D02E47A1E0B4A5D006451C7 /* Appxi-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Appxi-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -466,7 +466,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppxiDriver-AppxiDriverTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Appxi-AppxiTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,7 +502,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppxiDriver-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Appxi-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -515,7 +515,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppxiDriver-AppxiDriverTests/Pods-AppxiDriver-AppxiDriverTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Appxi-AppxiTests/Pods-Appxi-AppxiTests-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -560,7 +560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppxiDriver-AppxiDriverTests/Pods-AppxiDriver-AppxiDriverTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Appxi-AppxiTests/Pods-Appxi-AppxiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		527D648F368A1B21182DA59D /* [CP] Check Pods Manifest.lock */ = {
@@ -578,7 +578,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppxiDriver-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Appxi-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -601,7 +601,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppxiDriver/Pods-AppxiDriver-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Appxi/Pods-Appxi-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -646,7 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppxiDriver/Pods-AppxiDriver-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Appxi/Pods-Appxi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B2339043ED1F5B31D31AEF2A /* [CP] Check Pods Manifest.lock */ = {
@@ -664,7 +664,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppxiDriver-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Appxi-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -716,7 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* AppxiDriverTests.m in Sources */,
+				00E356F31AD99517003FC87E /* AppxiTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* AppxiDriverTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* AppxiTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,12 +751,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* AppxiDriver */;
+			target = 13B07F861A680F5B00A75B9A /* Appxi */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* AppxiDriver-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Appxi-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -764,14 +764,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 645A01F4B3D4361E74E26510 /* Pods-AppxiDriver-AppxiDriverTests.debug.xcconfig */;
+			baseConfigurationReference = 645A01F4B3D4361E74E26510 /* Pods-Appxi-AppxiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AppxiDriverTests/Info.plist;
+				INFOPLIST_FILE = AppxiTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -781,17 +781,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppxiDriver.app/AppxiDriver";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appxi.app/Appxi";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D2AB04D8688A3FB5EFF153C /* Pods-AppxiDriver-AppxiDriverTests.release.xcconfig */;
+			baseConfigurationReference = 2D2AB04D8688A3FB5EFF153C /* Pods-Appxi-AppxiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = AppxiDriverTests/Info.plist;
+				INFOPLIST_FILE = AppxiTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -801,19 +801,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppxiDriver.app/AppxiDriver";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appxi.app/Appxi";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95ACBA34476CC11E08950E0D /* Pods-AppxiDriver.debug.xcconfig */;
+			baseConfigurationReference = 95ACBA34476CC11E08950E0D /* Pods-Appxi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = AppxiDriver/Info.plist;
+				INFOPLIST_FILE = Appxi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -821,7 +821,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = AppxiDriver;
+				PRODUCT_NAME = Appxi;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -830,12 +830,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 481501D2D469C2FA5317C8DB /* Pods-AppxiDriver.release.xcconfig */;
+			baseConfigurationReference = 481501D2D469C2FA5317C8DB /* Pods-Appxi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = AppxiDriver/Info.plist;
+				INFOPLIST_FILE = Appxi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -843,7 +843,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = AppxiDriver;
+				PRODUCT_NAME = Appxi;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -851,7 +851,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1C01620C4AF0265B8CCCE4B /* Pods-AppxiDriver-tvOS.debug.xcconfig */;
+			baseConfigurationReference = B1C01620C4AF0265B8CCCE4B /* Pods-Appxi-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -862,14 +862,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "AppxiDriver-tvOS/Info.plist";
+				INFOPLIST_FILE = "Appxi-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AppxiDriver-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Appxi-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -879,7 +879,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92EA8402DE4396196037AE8D /* Pods-AppxiDriver-tvOS.release.xcconfig */;
+			baseConfigurationReference = 92EA8402DE4396196037AE8D /* Pods-Appxi-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -890,14 +890,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "AppxiDriver-tvOS/Info.plist";
+				INFOPLIST_FILE = "Appxi-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AppxiDriver-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Appxi-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -907,7 +907,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B36E6383EF071770CE24D50D /* Pods-AppxiDriver-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = B36E6383EF071770CE24D50D /* Pods-Appxi-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -917,24 +917,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "AppxiDriver-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Appxi-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AppxiDriver-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Appxi-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppxiDriver-tvOS.app/AppxiDriver-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appxi-tvOS.app/Appxi-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AB78A54CAAFC7726F39FAF7 /* Pods-AppxiDriver-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 3AB78A54CAAFC7726F39FAF7 /* Pods-Appxi-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -944,17 +944,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "AppxiDriver-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Appxi-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AppxiDriver-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Appxi-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppxiDriver-tvOS.app/AppxiDriver-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appxi-tvOS.app/Appxi-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1075,7 +1075,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AppxiDriverTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AppxiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1084,7 +1084,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AppxiDriver" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Appxi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1093,7 +1093,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AppxiDriver-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Appxi-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1102,7 +1102,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AppxiDriver-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Appxi-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,

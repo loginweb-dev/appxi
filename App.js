@@ -34,6 +34,9 @@ import DropDownMenu from "./src/UI/DropDownMenu";
 import auth from '@react-native-firebase/auth';
 import { LoginManager } from 'react-native-fbsdk';
 
+// Configurations
+import { env } from './src/config/env.js';
+
 const Stack = createStackNavigator();
 
 function App() {
@@ -151,7 +154,7 @@ function LogoTitle() {
         style={{ width: 40, height: 40 }}
         source={{uri: 'https://mystorage.loginweb.dev/storage/Projects/appxi/icon-512x512.png'}}
       />
-      <Text style={{ marginLeft: 15, fontSize: 25 }}>AppxiDriver</Text>
+      <Text style={{ marginLeft: 15, fontSize: 25 }}>{env.appName}</Text>
     </View>
   );
 }

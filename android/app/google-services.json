@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "932613022200",
-    "firebase_url": "https://appxi-driver-18b84.firebaseio.com",
-    "project_id": "appxi-driver-18b84",
-    "storage_bucket": "appxi-driver-18b84.appspot.com"
+    "project_number": "179517709963",
+    "firebase_url": "https://appxi-291200.firebaseio.com",
+    "project_id": "appxi-291200",
+    "storage_bucket": "appxi-291200.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:932613022200:android:e0258f030b327efb81760d",
+        "mobilesdk_app_id": "1:179517709963:android:5f36c1371fcab51e2d7e8e",
         "android_client_info": {
-          "package_name": "com.loginweb.appxidriver"
+          "package_name": "com.loginweb.appxi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "932613022200-1s7ecjia2el93n2idrh8fk3nabt11jir.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.loginweb.appxidriver",
-            "certificate_hash": "c590f4ad343f287512f6e000b14eeb38185942fa"
-          }
-        },
-        {
-          "client_id": "932613022200-34onbha0rj13ef7gkl8kvoldtrea7gm4.apps.googleusercontent.com",
+          "client_id": "179517709963-knnnlr4jt967spum9uj0mpr3059a21ar.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJ_OgOUJ7XAfZiCj_4vAvUxAWLfbiSa6U"
+          "current_key": "AIzaSyBM_qkquL72kfkhTl0YfKDwclI0B_QLrw8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "932613022200-34onbha0rj13ef7gkl8kvoldtrea7gm4.apps.googleusercontent.com",
+              "client_id": "179517709963-knnnlr4jt967spum9uj0mpr3059a21ar.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

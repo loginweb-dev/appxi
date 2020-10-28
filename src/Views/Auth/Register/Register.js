@@ -51,7 +51,6 @@ class Register extends Component {
                                 colorText='#3b5998'
                             />
                         </View>
-                        <ClearFix height={50} />
                     </View>
                 </ScrollView>
             </SafeAreaView>

@@ -38,10 +38,6 @@ export default class RaceList extends Component {
         }
     }
 
-    componentDidMount(){
-        
-    }
-
     getCurrentLocation(){
         Geolocation.getCurrentPosition(position => {
             this.setState({

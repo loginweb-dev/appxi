@@ -1,5 +1,5 @@
 export const env = {
-    appName: "Appxi Driver",
+    appName: "Appxi",
     appDescription: "Versión inical de una aplicación que incluye react-navigation y redux.",
     autor: "LoginWeb",
     API: "https://loginweb.dev",

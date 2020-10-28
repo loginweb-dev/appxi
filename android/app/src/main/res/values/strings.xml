@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Appxi Driver</string>
-    <string name="facebook_app_id">377326183441083</string>
+    <string name="app_name">Appxi</string>
+    <string name="facebook_app_id">803456103531634</string>
+    <string name="fb_login_protocol_scheme">fb803456103531634</string>
 </resources>
