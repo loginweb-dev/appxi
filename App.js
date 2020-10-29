@@ -175,7 +175,7 @@ function TabMenu() {
         options={{
           tabBarLabel: 'Inicio',
           tabBarIcon: ({ color }) => (
-            <Icon name="home" color={color} size={26} />
+            <Icon name="location-sharp" color={color} size={26} />
           ),
         }}
       />
@@ -183,9 +183,9 @@ function TabMenu() {
         name="List"
         component={RaceList}
         options={{
-          tabBarLabel: 'Carreras',
+          tabBarLabel: 'Mis viajes',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-car-sport-sharp" color={color} size={26} />
+            <Icon name="analytics" color={color} size={26} />
           ),
         }}
       />
@@ -193,9 +193,9 @@ function TabMenu() {
         name="Profile"
         component={Config}
         options={{
-          tabBarLabel: 'Configuración',
+          tabBarLabel: 'Perfil',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-settings" color={color} size={26} />
+            <Icon name="person-circle-outline" color={color} size={26} />
           ),
         }}  
       />

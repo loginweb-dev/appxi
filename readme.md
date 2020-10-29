@@ -1,4 +1,4 @@
-# Appxi Driver
+# Appxi
 
 Aplicación para conductores de la plataforma Appxi.
 

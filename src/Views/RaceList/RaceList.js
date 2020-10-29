@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { SafeAreaView,
+import {
+    SafeAreaView,
     ScrollView,
     View,
     StyleSheet,
     Text,
     Image,
     Modal,
-    Dimensions
+    Dimensions,
+    PermissionsAndroid
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -38,28 +40,43 @@ export default class RaceList extends Component {
         }
     }
 
-    getCurrentLocation(){
-        Geolocation.getCurrentPosition(position => {
-            this.setState({
-                region: {
-                    ...this.state.region,
+    async getCurrentLocation(){
+        try {
+            const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                {
+                'title': 'Permiso de ubicación',
+                'message': `${env.appName} necesita acceder a tu ubicación actual.`
+                }
+            );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                Geolocation.getCurrentPosition(position => {
+                    this.setState({
+                        region: {
+                            ...this.state.region,
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        }
+                    });
+                },
+                error => console.log(error),
+                {
+                    enableHighAccuracy: false,
+                    timeout: 2000,
+                    maximumAge: 3600000
+                });
+
+                // Change map center
+                this.map.animateToRegion({
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
-                },
-                markerOpacity: 1,
-                buttonEditVisible: true,
-                markerTitle: 'Ubicación actual',
-                markerDescription: 'Ubicación obtenida según tu GPS.',
-            });
-
-            // Change map center
-            this.map.animateToRegion({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-                latitudeDelta: this.state.region.latitudeDelta,
-                longitudeDelta: this.state.region.longitudeDelta
-            });
-        });
+                    latitudeDelta: this.state.region.latitudeDelta,
+                    longitudeDelta: this.state.region.longitudeDelta
+                });
+            }
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     getRace = () => {

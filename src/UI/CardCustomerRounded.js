@@ -6,24 +6,36 @@ import {
     Text,
     Image
 } from 'react-native';
+import { Rating } from 'react-native-ratings';
 
 export default function CardCustomerRounded(props) {
     return (
+        <TouchableOpacity
+            onPress={props.onPress}
+        >
             <View style={ [styles.cardContainer] }>
                 <View style={{ width: '20%', flex: 1 }}>
                     <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{uri: 'https://reactnative.dev/img/tiny_logo.png',}}
+                        source={{uri: props.avatar }}
                     />
                 </View>
                 <View style={{ width: '60%' }}>
-                    <Text style={{ fontSize: 18, color: 'black' }} numberOfLines={1}>{ props.customer }</Text>
-                    <Text style={{ fontSize: 13, color: '#909090', marginTop: 3 }} numberOfLines={1}>{ props.description }</Text>
+                    <Text style={{ fontSize: 18, color: 'black' }} numberOfLines={1}>{ props.name }</Text>
+                    <Rating
+                        type='star'
+                        startingValue={props.rating}
+                        readonly
+                        imageSize={15}
+                        isDisabled={true}
+                        style={{flexDirection: 'row'}}
+                    />
                 </View>
                 <View style={{ width: '20%', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, color: '#5B5C5E' }}>{ props.amount }</Text>
+                    <Text style={{ fontSize: 20, color: '#5B5C5E' }}>{ props.amount } Bs.</Text>
                 </View>
             </View>
+        </TouchableOpacity>
     );
 }
 
@@ -42,6 +54,6 @@ const styles = StyleSheet.create({
         width: '100%',
         elevation: 3,
         borderColor: '#ddd',
-        marginTop: 20
+        marginTop: 5
     }
 });
