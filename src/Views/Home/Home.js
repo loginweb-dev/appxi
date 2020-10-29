@@ -20,12 +20,14 @@ import MapViewDirections from 'react-native-maps-directions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProgressBar from 'react-native-progress/Bar';
+import { showMessage } from "react-native-flash-message";
+import { Rating } from 'react-native-ratings';
 
 // UI
 import CardBorderLeft from "../../UI/CardBorderLeft";
 import ClearFix from "../../UI/ClearFix";
 import CardCustomerRounded from "../../UI/CardCustomerRounded";
-import { Rating } from 'react-native-ratings';
+import MarkerUser from "../../UI/MarkerUser";
 
 // Config
 import { env } from '../../config/env';
@@ -80,7 +82,8 @@ export default class Home extends Component {
             requestTravel: false,
             selectVehicleType: false,
             waitingDriver: false,
-            driverList: []
+            driverList: [],
+            waitingForDriver: false
         }
         this.getCurrentLocation();
     }
@@ -123,13 +126,25 @@ export default class Home extends Component {
     }
 
     getDestination(location){
-        this.setState({
-            handleDestination: true,
-            destination: {
+        if(!this.state.waitingForDriver){
+            this.setState({
+                handleDestination: true,
+                driverList: [],
+                destination: {
+                    latitude: location.latitude,
+                    longitude: location.longitude,
+                },
+                region: {
+                ...this.state.region,
                 latitude: location.latitude,
                 longitude: location.longitude,
             }
-        });
+            });
+            // Change map center
+            setTimeout(() => {
+                this.map.animateToRegion(this.state.region);
+            }, 250);
+        }
     }
 
     cancelDestination = () => {
@@ -143,7 +158,9 @@ export default class Home extends Component {
             }
         });
         // Change map center
-        this.map.animateToRegion(this.state.region);
+        setTimeout(() => {
+            this.map.animateToRegion(this.state.region);
+        }, 250);
     } 
 
     async getDrivers(){
@@ -159,12 +176,34 @@ export default class Home extends Component {
                 driverList: drivers
             });
 
-        }, 3000);
+        }, 2000);
     }
 
     async handleDriver(){
         this.setState({
             requestTravel: false,
+            handleDestination: false,
+            waitingForDriver: true,
+            driverList: [],
+            region: {
+                ...this.state.region,
+                latitude: this.state.location.latitude,
+                longitude: this.state.location.longitude,
+            },
+            destination: {
+                latitude: -14.828302,
+                longitude: -64.914328
+            }
+        });
+        // Change map center
+        setTimeout(() => {
+            this.map.animateToRegion(this.state.region);
+        }, 250);
+        showMessage({
+            message: "Viaje aceptado",
+            description: "Tu conductor está en camino.",
+            type: "success",
+            icon: 'success'
         });
     }
  
@@ -182,7 +221,6 @@ export default class Home extends Component {
                             .then(res => res.json())
                             .then(res => {
                                 let location = res.result.geometry.location;
-                                console.log(location)
                                 this.setState({
                                     handleDestination: true,
                                     destination: {
@@ -196,7 +234,9 @@ export default class Home extends Component {
                                     }
                                 });
                                 // Change map center
-                                this.map.animateToRegion(this.state.region);
+                                setTimeout(() => {
+                                    this.map.animateToRegion(this.state.region);
+                                }, 250);
                             })
                             .catch(error => {
                                 console.log(error)
@@ -208,6 +248,18 @@ export default class Home extends Component {
                         language: 'es',
                     }}
                 />
+
+                {/* My places */}
+                {   !this.state.searchDestination && !this.state.requestTravel && !this.state.waitingForDriver &&
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={ styles.myPlaces } >
+                        <Place title='Casa' onPress={() => {this.getDestination({ latitude: -14.834726, longitude: -64.8806627 })}} />
+                        <Place title='Trabajo' onPress={() => {this.getDestination({ latitude: -14.833129, longitude: -64.880781 })}} />
+                        <Place title='Casa de Julia' onPress={() => {this.getDestination({ latitude: -14.838937, longitude: -64.895833 })}} />
+                        <Place title='Restaurante "El M...' onPress={() => {this.getDestination({ latitude: -14.835234, longitude: -64.921658 })}} />
+                        <Place title='Universidad' onPress={() => {this.getDestination({ latitude: -14.818552, longitude: -64.894643 })}} />
+                    </ScrollView>
+                }
+
                 {   !this.state.searchDestination &&
                     <MapView
                         ref={map => {this.map = map}}
@@ -216,6 +268,7 @@ export default class Home extends Component {
                         initialRegion={this.state.region}
                         onPress={ (event) => this.getDestination(event.nativeEvent.coordinate) }
                     >
+                        {/* Marker current location */}
                         <Marker
                             coordinate={
                                 { 
@@ -245,10 +298,10 @@ export default class Home extends Component {
                                 title='Destino'
                                 description='Location description'
                                 // draggable
-                                onPress={ (event) => this.getDestination(event.nativeEvent.coordinate) }
+                                // onPress={ (event) => this.getDestination(event.nativeEvent.coordinate) }
                             >
                                 <Image
-                                    source={require('../../assets/images/marker.png')}
+                                    source={require('../../assets/images/marker-alt.png')}
                                     style={{ width: 40, height: 40 }}
                                 />
                             </Marker>
@@ -272,6 +325,39 @@ export default class Home extends Component {
                                 }}
                             />
                         }
+                        {/* Car driver */}
+                        {   this.state.waitingForDriver &&
+                            <Marker
+                                coordinate={
+                                    { 
+                                        latitude: -14.828302,
+                                        longitude: -64.914328
+                                    }
+                                }
+                                title='Julia Noa'
+                                description='1,3 Km - llega en 7 min'
+                            >
+                                <MarkerUser image='https://cdn.pixabay.com/photo/2015/09/02/13/24/girl-919048__340.jpg' />
+                            </Marker>
+                        }
+                        {   this.state.waitingForDriver &&
+                            <MapViewDirections
+                                origin={{ latitude: this.state.location.latitude, longitude: this.state.location.longitude }}
+                                language='es'
+                                mode='DRIVING'
+                                destination={{ latitude: -14.828302, longitude: -64.914328 }}
+                                apikey='AIzaSyBGfY28kVR1D4-WK_g_FwXG7bXCHIvpCjQ'
+                                strokeWidth = { 4 } 
+                                strokeColor = "#156095" 
+                                waypoints= {[{ 
+                                    latitude: -14.828302, longitude: -64.914328
+                                }]}
+                                onReady={result => {
+                                    console.log('Distance:' + result.distance.toFixed(2) + ' km')
+                                    console.log('Duration:' + result.duration.toFixed(2) + ' min.')
+                                }}
+                            />
+                        }
                     </MapView>
                 }
 
@@ -291,11 +377,10 @@ export default class Home extends Component {
                         </View>
                         {/* Seleccionar tipo de vehículo */}
                         {   this.state.selectVehicleType && 
-                            <View>
+                            <View style={{ alignItems: 'center' }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <TypeVehicleButton onPress={ () => this.getDrivers() } title='Motocicleta' icon='bicycle-sharp' />
                                     <TypeVehicleButton onPress={ () => this.getDrivers() } title='Automóvil' icon='car-sport' />
-                                    <TypeVehicleButton onPress={ () => this.getDrivers() } title='Cohete' icon='md-rocket-sharp' />
                                 </View>
                                 <Text style={{ marginTop: 15, color: 'white' }}>Elije el tipo de transporte que deseas</Text>
                             </View>
@@ -353,6 +438,17 @@ const TypeVehicleButton = (props) => {
     )
 }
 
+const Place = (props) => {
+    return(
+        <TouchableOpacity
+            onPress={props.onPress}
+            style={{ paddingHorizontal: 10, paddingVertical: 5, backgroundColor: '#156095', borderRadius: 20, borderWidth: 2, borderColor: 'white', marginHorizontal: 2 }}
+        >
+            <Text style={{ color: 'white' }}>{ props.title }</Text>
+        </TouchableOpacity>
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -369,4 +465,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: 'rgba(0,0,0,0.4)'
     },
+    myPlaces: {
+        width: screenWidth,
+        position: 'absolute',
+        top: 55,
+        left: 0,
+        right: 0,
+        margin: 0,
+        zIndex:1
+    }
 });
