@@ -2,7 +2,7 @@ export const env = {
     appName: "Appxi",
     appDescription: "Versión inical de una aplicación que incluye react-navigation y redux.",
     autor: "LoginWeb",
-    API: "https://loginweb.dev",
+    API: "https://appxiapi.loginweb.dev",
     SocketIOServer: "http://161.35.64.130:3000",
     debug: false,
     location: {

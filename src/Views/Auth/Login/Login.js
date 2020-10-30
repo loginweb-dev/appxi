@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
+import axios from "axios";
+import { showMessage } from "react-native-flash-message";
 
 // Firebase
 import auth from '@react-native-firebase/auth';
@@ -21,6 +23,9 @@ import TextInputAlt from "../../../UI/TextInputAlt";
 import ButtonBlock from "../../../UI/ButtonBlock";
 import ClearFix from "../../../UI/ClearFix";
 
+// Config
+import { env } from '../../../config/env';
+
 GoogleSignin.configure({
     scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     webClientId: '932613022200-34onbha0rj13ef7gkl8kvoldtrea7gm4.apps.googleusercontent.com',
@@ -31,9 +36,17 @@ GoogleSignin.configure({
 class Login extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            email: '',
+            password: '',
+            typeLogin: '',
+            userInfo: {}
+        }
     }
 
     onFacebookButtonPress = async () => {
+
+        this.setState({typeLogin: 'facebook'});
         // Attempt login with permissions
         const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
@@ -52,22 +65,18 @@ class Login extends Component {
             fetch(`https://graph.facebook.com/me?fields=id,name,email&access_token=${data.accessToken}`)
             .then(res => res.json())
             .then(res => {
-                let user = {
-                    id: res.id,
-                    name: res.name,
+
+                this.setState({
                     email: res.email ? res.email : `${res.id}@loginweb.dev`,
-                    codePhone: '+591',
-                    numberPhone: '',
-                    avatar: `http://graph.facebook.com/${res.id}/picture?type=large`,
-                    type: 'facebook'
-                }
-                this.props.setUser(user);
-                AsyncStorage.setItem('SessionUser', JSON.stringify(user));
-                this.props.navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'TabMenu' }],
-                    key: null,
+                    password: 'password',
+                    userInfo: {
+                        name: res.name,
+                        email: res.email ? res.email : `${res.id}@loginweb.dev`,
+                        avatar: `http://graph.facebook.com/${res.id}/picture?type=large`,
+                        type: 'facebook'
+                    }
                 });
+                this.handleLogin()
             })
             .catch(error => {
                 console.log(error);
@@ -76,40 +85,105 @@ class Login extends Component {
     }
 
     onGoogleButtonPress = async () => {
+        this.setState({typeLogin: 'google'});
         try {
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
-            let user = {
-                id: userInfo.user.id,
-                name: userInfo.user.name,
+            this.setState({
                 email: userInfo.user.email,
-                codePhone: '+591',
-                numberPhone: '',
-                avatar: userInfo.user.photo,
-                type: 'google'
-            }
-            this.props.setUser(user);
-            AsyncStorage.setItem('SessionUser', JSON.stringify(user));
-            this.props.navigation.reset({
-                index: 0,
-                routes: [{ name: 'TabMenu' }],
-                key: null,
+                password: 'password'
             });
+            this.handleLogin()
         } catch (error) {
             console.log(error)
         }
     }
 
-    handleLogin(){
-        let user = {
-            id: 1,
-            name: 'Invitado',
-            email: 'invitado@gamil.com',
-            codePhone: '+591',
-            numberPhone: '',
-            avatar: 'https://reactnative.dev/img/tiny_logo.png',
-            type: 'dashboard'
+    handleLogin = async () => {
+
+        if(this.state.email && this.state.password){
+            let url = `${env.API}/auth/local`;
+            let credential = {
+                identifier: this.state.email,
+                password: this.state.password
+            }
+            let res = await axios.post(url, credential)
+                            .then(res => res.data)
+                            .catch(error => null);
+
+            if(res){
+                let miavatar = res.user.customer.avatar ? res.user.customer.avatar.url : null;
+                let user = {
+                    id: res.user.id,
+                    name: res.user.first_name,
+                    last_name: res.user.last_name,
+                    email: res.user.email,
+                    codePhone: '+591',
+                    numberPhone: res.user.phone,
+                    avatar: `https://appxiapi.loginweb.dev${miavatar}`,
+                    type: 'dashboard',
+                    jwt: res.user.jwt
+                }
+                this.successLogin(user);
+                
+            }else{
+                if(this.state.typeLogin != 'dashboard'){
+                    let url = `${env.API}/users`;
+                    let credential = {
+                        username: this.state.userInfo.name,
+                        email: this.state.userInfo.email,
+                        password: 'password',
+                        confirmed: true
+                    }
+                    axios.post(url, credential)
+                    .then(res => {
+                        let user = res.data;
+                        let url = `${env.API}/customers`;
+                        let customer = {
+                            first_name: this.state.userInfo.name,
+                            user_id: user.id
+                        }
+                        axios.post(url, customer)
+                        .then(res => {
+                            let customer = res.data;
+                            let miavatar = customer.avatar ? customer.avatar.url : null;
+                            let user = {
+                                id: customer.user_id.id,
+                                name: customer.first_name,
+                                last_name: customer.last_name,
+                                email: customer.user_id.email,
+                                codePhone: '+591',
+                                numberPhone: customer.user_id.phone,
+                                avatar: `https://appxiapi.loginweb.dev${miavatar}`,
+                                type: 'facebook',
+                                // jwt: res.user.jwt
+                            }
+                            this.successLogin(user);
+                        })
+                        .catch(error => console.log(error))
+                    })
+                    .catch(error => console.log(error))
+
+                }else{
+                    showMessage({
+                        message: "Credenciales incorrectos",
+                        description: "Su email y/o contrasela no están registrados.",
+                        type: "warning",
+                        icon: 'warning'
+                    });
+                }
+            }
+        }else{
+            showMessage({
+                message: "Error de validación",
+                description: "Debe ingresar un email y contraseña válidos.",
+                type: "warning",
+                icon: 'warning'
+            });
         }
+    }
+
+    successLogin(user){
         this.props.setUser(user);
         AsyncStorage.setItem('SessionUser', JSON.stringify(user));
         this.props.navigation.reset({
@@ -132,11 +206,15 @@ class Login extends Component {
                             label='Email'
                             placeholder='Tu email o celular'
                             keyboardType='email-address'
+                            // value={ this.state.email }
+                            onChangeText={ text => this.setState({email: text}) }
                         />
                         <TextInputAlt
                             label='Contraseña'
                             placeholder='Tu contraseña'
                             password
+                            // value={ this.state.password }
+                            onChangeText={ text => this.setState({password: text}) }
                         />
                         <View style={{ margin: 20 }}>
                             <ButtonBlock
@@ -144,7 +222,12 @@ class Login extends Component {
                                 color='white'
                                 borderColor='#3b5998'
                                 colorText='#3b5998'
-                                onPress={() => this.handleLogin()}
+                                onPress={ () => {
+                                    this.setState({
+                                        typeLogin: 'dashboard'
+                                    });
+                                    this.handleLogin();
+                                } }
                             />
                         </View>
                         <View style={{ alignItems: 'center', width: '100%' }}>
