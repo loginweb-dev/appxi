@@ -22,6 +22,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import ProgressBar from 'react-native-progress/Bar';
 import { showMessage } from "react-native-flash-message";
 import { Rating } from 'react-native-ratings';
+import io from 'socket.io-client'
+
 
 // UI
 import CardBorderLeft from "../../UI/CardBorderLeft";
@@ -78,12 +80,17 @@ export default class Home extends Component {
                 latitude: env.location.latitude,
                 longitude: env.location.longitude,
             },
+            driver: {
+               latitude: env.location.latitude,
+                longitude: env.location.longitude, 
+            },
             searchDestination: false,
             requestTravel: false,
             selectVehicleType: false,
             waitingDriver: false,
             driverList: [],
-            waitingForDriver: false
+            waitingForDriver: false,
+            setRating: false
         }
         this.getCurrentLocation();
     }
@@ -92,6 +99,17 @@ export default class Home extends Component {
         // Detectar keyboard
         Keyboard.addListener('keyboardDidShow', (frames) => this.setState({searchDestination: true}) );
         Keyboard.addListener('keyboardDidHide', () =>  this.setState({searchDestination: false}) );
+
+        // Conectarse al servidor socket-io
+        this.socket = io(env.SocketIOServer);
+        this.socket.on('chat message', res => {
+            this.setState({
+                driver: {
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                }
+            });
+        })
     }
 
     async getCurrentLocation(){
@@ -190,7 +208,7 @@ export default class Home extends Component {
                 latitude: this.state.location.latitude,
                 longitude: this.state.location.longitude,
             },
-            destination: {
+            driver: {
                 latitude: -14.828302,
                 longitude: -64.914328
             }
@@ -202,6 +220,21 @@ export default class Home extends Component {
         showMessage({
             message: "Viaje aceptado",
             description: "Tu conductor está en camino.",
+            type: "success",
+            icon: 'success'
+        });
+    }
+
+    setRatingTravel = () => {
+        this.setState({
+            requestTravel: false,
+            handleDestination: false,
+            setRating: false
+        });
+
+        showMessage({
+            message: "Gracias por tu calificación",
+            description: "Con tu calificación nos ayudas a mejorar.",
             type: "success",
             icon: 'success'
         });
@@ -330,8 +363,8 @@ export default class Home extends Component {
                             <Marker
                                 coordinate={
                                     { 
-                                        latitude: -14.828302,
-                                        longitude: -64.914328
+                                        latitude: this.state.driver.latitude,
+                                        longitude: this.state.driver.longitude
                                     }
                                 }
                                 title='Julia Noa'
@@ -345,12 +378,12 @@ export default class Home extends Component {
                                 origin={{ latitude: this.state.location.latitude, longitude: this.state.location.longitude }}
                                 language='es'
                                 mode='DRIVING'
-                                destination={{ latitude: -14.828302, longitude: -64.914328 }}
+                                destination={{ latitude: this.state.driver.latitude, longitude: this.state.driver.longitude }}
                                 apikey='AIzaSyBGfY28kVR1D4-WK_g_FwXG7bXCHIvpCjQ'
                                 strokeWidth = { 4 } 
                                 strokeColor = "#156095" 
                                 waypoints= {[{ 
-                                    latitude: -14.828302, longitude: -64.914328
+                                    latitude: this.state.driver.latitude, longitude: this.state.driver.longitude
                                 }]}
                                 onReady={result => {
                                     console.log('Distance:' + result.distance.toFixed(2) + ' km')
@@ -417,6 +450,33 @@ export default class Home extends Component {
                                     onPress={() => this.handleDriver()}
                                 />
                             )
+                        }
+                        {/* ======================= */}
+
+                        {/* Set rating */}
+                        {   this.state.setRating && 
+                            <View style={{ alignItems: 'center', backgroundColor: 'white', borderRadius: 10, paddingTop: 30, width: screenWidth - 100 }}>
+                                <Image
+                                    style={{ width: 80, height: 80, borderRadius: 40, borderWidth: 3, borderColor: '#156095' }}
+                                    source={{uri: 'https://cdn.pixabay.com/photo/2015/09/02/13/24/girl-919048__340.jpg' }}
+                                />
+                                <Text style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>Julia Noe</Text>
+                                <Rating
+                                    type='star'
+                                    startingValue={3}
+                                    imageSize={30}
+                                    fractions={0}
+                                    style={{marginTop: 10}}
+                                />
+                                <TouchableOpacity
+                                    onPress={ this.setRatingTravel }
+                                    style={{ width: '100%' }}
+                                >
+                                    <View style={{ marginTop: 15, paddingVertical: 20, borderTopWidth: 1, borderTopColor: '#CFCFCF', alignItems: 'center' }}>
+                                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#156095' }}>Calificar</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
                         }
                         {/* ======================= */}
                     </View>

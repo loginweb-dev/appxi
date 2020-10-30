@@ -27,7 +27,6 @@ export default function CardCustomerRounded(props) {
                         startingValue={props.rating}
                         readonly
                         imageSize={15}
-                        isDisabled={true}
                         style={{flexDirection: 'row'}}
                     />
                 </View>
