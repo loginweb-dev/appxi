@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 
 // UI
 import Card from "../../UI/Card";
+import CardRace from "../../UI/CardRace";
 import TextInputAlt from "../../UI/TextInputAlt";
 import ButtonBlock from "../../UI/ButtonBlock";
 import ClearFix from "../../UI/ClearFix";
@@ -71,7 +72,28 @@ class Config extends Component {
                             <Counter amount='1,2 K' label='Monto' />
                         </View>
                     </Card>
-                    <ClearFix height={50} />
+                    <ClearFix height={10} />
+                        <Card>
+                            <SafeAreaView style={ styles.container }>
+                                <Text>Lista de Ubicaciones</Text>
+                                <ScrollView showsVerticalScrollIndicator={false} style={{ paddingVertical: 10 }}>
+                                    <CardRace
+                                        customer='Juan perez'
+                                        avatar=''
+                                        description='Calle 18 de nov. nro 567'
+                                        amount='25 Bs.'
+                                        onPress={this.getRace}
+                                    />
+                                     <CardRace
+                                        customer='Juan perez'
+                                        avatar=''
+                                        description='Calle 18 de nov. nro 567'
+                                        amount='25 Bs.'
+                                        onPress={this.getRace}
+                                    />
+                                </ScrollView>
+                            </SafeAreaView>
+                        </Card>
                 </ScrollView>
 
                 {/* Modal */}

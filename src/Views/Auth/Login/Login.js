@@ -5,11 +5,12 @@ import {
     ScrollView,
     StyleSheet,
     Text,
-    Alert
+    Alert,
+    ToastAndroid
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
-
+import axios from 'axios';
 // Firebase
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
@@ -31,6 +32,12 @@ GoogleSignin.configure({
 class Login extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            email: 'percy.alvarez.2017@gmail.com',
+            password: 'password',
+            loading: false,
+            checked: true
+        }
     }
 
     onFacebookButtonPress = async () => {
@@ -100,23 +107,30 @@ class Login extends Component {
         }
     }
 
-    handleLogin(){
-        let user = {
-            id: 1,
-            name: 'Invitado',
-            email: 'invitado@gamil.com',
-            codePhone: '+591',
-            numberPhone: '',
-            avatar: 'https://reactnative.dev/img/tiny_logo.png',
-            type: 'dashboard'
+    async handleLogin(){
+        try {
+            this.setState({loading: true});
+            const login = await axios.post('https://appxiapi.loginweb.dev/auth/local', {
+                identifier: this.state.email,
+                password: this.state.password
+            });
+            this.props.setUser(login.data);
+            AsyncStorage.setItem('SessionUser', JSON.stringify(login.data));
+            this.props.navigation.reset({
+                index: 0,
+                routes: [{ name: 'TabMenu' }],
+                key: null,
+            });
+        } catch (error) {
+            this.setState({loading: false});
+            ToastAndroid.showWithGravityAndOffset(
+                'Error en las credenciales',
+                ToastAndroid.LONG,
+                ToastAndroid.TOP,
+                25,
+                50
+            );
         }
-        this.props.setUser(user);
-        AsyncStorage.setItem('SessionUser', JSON.stringify(user));
-        this.props.navigation.reset({
-            index: 0,
-            routes: [{ name: 'TabMenu' }],
-            key: null,
-        });
     }
 
     render(){
@@ -132,15 +146,19 @@ class Login extends Component {
                             label='Email'
                             placeholder='Tu email o celular'
                             keyboardType='email-address'
+                            value={this.state.email}
+                            onChangeText={text => this.setState({email: text})}
                         />
                         <TextInputAlt
                             label='Contraseña'
                             placeholder='Tu contraseña'
                             password
+                            value={this.state.password}
+                            onChangeText={text => this.setState({password: text})}
                         />
                         <View style={{ margin: 20 }}>
                             <ButtonBlock
-                                title='Iniciar sesión'
+                                title={this.state.loading ? 'Enviando...' : 'Login'}
                                 color='white'
                                 borderColor='#3b5998'
                                 colorText='#3b5998'

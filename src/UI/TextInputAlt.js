@@ -18,6 +18,8 @@ export default function TextInputAlt(props) {
                     secureTextEntry={props.password ? true: false}
                     keyboardType={props.keyboardType ? props.keyboardType : 'default'}
                     autoCapitalize={props.autoCapitalize ? props.autoCapitalize : 'none'}
+                    value={props.value}
+                    onChangeText={props.onChangeText}
                 />
             </View>
         </View>
