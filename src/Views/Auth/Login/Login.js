@@ -22,6 +22,9 @@ import TextInputAlt from "../../../UI/TextInputAlt";
 import ButtonBlock from "../../../UI/ButtonBlock";
 import ClearFix from "../../../UI/ClearFix";
 
+// Config
+import { env } from '../../../config/env';
+
 GoogleSignin.configure({
     scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     webClientId: '932613022200-34onbha0rj13ef7gkl8kvoldtrea7gm4.apps.googleusercontent.com',
@@ -68,8 +71,8 @@ class Login extends Component {
                     avatar: `http://graph.facebook.com/${res.id}/picture?type=large`,
                     type: 'facebook'
                 }
-                this.props.setUser(user);
-                AsyncStorage.setItem('SessionUser', JSON.stringify(user));
+                this.props.sessionLogin(user);
+                AsyncStorage.setItem('sessionLogin', JSON.stringify(user));
                 this.props.navigation.reset({
                     index: 0,
                     routes: [{ name: 'TabMenu' }],
@@ -95,8 +98,8 @@ class Login extends Component {
                 avatar: userInfo.user.photo,
                 type: 'google'
             }
-            this.props.setUser(user);
-            AsyncStorage.setItem('SessionUser', JSON.stringify(user));
+            this.props.sessionLogin(user);
+            AsyncStorage.setItem('sessionLogin', JSON.stringify(user));
             this.props.navigation.reset({
                 index: 0,
                 routes: [{ name: 'TabMenu' }],
@@ -110,18 +113,19 @@ class Login extends Component {
     async handleLogin(){
         try {
             this.setState({loading: true});
-            const login = await axios.post('https://appxiapi.loginweb.dev/auth/local', {
+            const login = await axios.post(`${env.API}/auth/local`, {
                 identifier: this.state.email,
                 password: this.state.password
             });
-            this.props.setUser(login.data);
-            AsyncStorage.setItem('SessionUser', JSON.stringify(login.data));
+            this.props.sessionLogin(login.data);
+            AsyncStorage.setItem('sessionLogin', JSON.stringify(login.data));
             this.props.navigation.reset({
                 index: 0,
                 routes: [{ name: 'TabMenu' }],
                 key: null,
             });
         } catch (error) {
+            console.log(error)
             this.setState({loading: false});
             ToastAndroid.showWithGravityAndOffset(
                 'Error en las credenciales',
@@ -212,9 +216,9 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setUser : (user) => dispatch({
-            type: 'SET_USER',
-            payload: user
+        sessionLogin : (sessionLogin) => dispatch({
+            type: 'SET_SESSIONLOGIN',
+            payload: sessionLogin
         })
     }
 }

@@ -53,13 +53,13 @@ class Config extends Component {
                                 <View style={{ width: '40%', flex: 1 }}>
                                     <Image
                                         style={{ width: 80, height: 80, borderRadius: 40 }}
-                                        source={{ uri: this.props.user.avatar }}
+                                        source={{ uri: this.props.sessionLogin.user.avatar }}
                                     />
                                 </View>
                                 <View style={{ width: '60%', paddingLeft: 30 }}>
-                                    <Text style={{ fontSize: 18, color: 'black' }} numberOfLines={1}>{ this.props.user.name }</Text>
-                                    <Text style={ styles.textMuted } numberOfLines={1}>{ this.props.user.email }</Text>
-                                    <Text style={ styles.textMuted } numberOfLines={1}>{ this.props.user.phone }</Text>
+                                    <Text style={{ fontSize: 18, color: 'black' }} numberOfLines={1}>{ this.props.sessionLogin.user.name }</Text>
+                                    <Text style={ styles.textMuted } numberOfLines={1}>{ this.props.sessionLogin.user.email }</Text>
+                                    <Text style={ styles.textMuted } numberOfLines={1}>{ this.props.sessionLogin.user.phone }</Text>
                                 </View>
                                 <View style={{ width: '5%', flex: 1, alignItems: 'center', flexDirection: 'row-reverse' }}>
                                     <Icon name="chevron-forward" />
@@ -109,7 +109,7 @@ class Config extends Component {
                             <Text style={{ fontSize: 20, marginHorizontal: 20, marginBottom: 20 }}>Editar Perfil</Text>
                             <Image
                                 style={{ width: 80, height: 80, borderRadius: 40, marginVertical: 10 }}
-                                source={{ uri: this.props.user.avatar }}
+                                source={{ uri: this.props.sessionLogin.user.avatar }}
                             />
                         </View>
                         <View style={ styles.form }>
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user,
+        sessionLogin: state.sessionLogin,
     }
 }
 

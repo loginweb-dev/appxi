@@ -1,11 +1,11 @@
 const reducerApp = (
         state = {
-            user: {}
+            sessionLogin: {}
         }, action
     ) => {
     switch (action.type) {
-        case 'SET_USER':
-            return {...state, user: action.payload};
+        case 'SET_SESSIONLOGIN':
+            return {...state, sessionLogin: action.payload};
         default:
             return state;
     }

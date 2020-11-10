@@ -17,17 +17,16 @@ class SplashScreen extends Component {
 
     // Fetch the token from storage then navigate to our appropriate place
     bootstrapAsync = async () => {
-        const SessionUser = await AsyncStorage.getItem('SessionUser');
-        let user = SessionUser ? JSON.parse(SessionUser) : {};
+        const sessionLoginStorage = await AsyncStorage.getItem('sessionLogin');
+        let sessionLogin = sessionLoginStorage ? JSON.parse(sessionLoginStorage) : {};
         setTimeout(()=>{
             this.setState({
                 isLoading: false
             }, () => {
-                console.log(user);
-                this.props.setUser(user);
+                this.props.sessionLogin(sessionLogin);
                 this.props.navigation.reset({
                     index: 0,
-                    routes: [{ name: user.id ? 'TabMenu' : 'Login' }],
+                    routes: [{ name: sessionLogin.user ? 'TabMenu' : 'Login' }],
                     key: null,
                 });
             });
@@ -90,9 +89,9 @@ const style = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setUser : (user) => dispatch({
-            type: 'SET_USER',
-            payload: user
+        sessionLogin : (sessionLogin) => dispatch({
+            type: 'SET_SESSIONLOGIN',
+            payload: sessionLogin
         })
     }
 }

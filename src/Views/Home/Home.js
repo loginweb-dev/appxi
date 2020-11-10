@@ -10,19 +10,24 @@ import {
     Keyboard,
     PermissionsAndroid,
     Modal,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableHighlight
 } from 'react-native';
+
+import { connect } from 'react-redux';
+import axios from 'axios';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ProgressBar from 'react-native-progress/Bar';
+import { showMessage } from "react-native-flash-message";
+import AwesomeAlert from 'react-native-awesome-alerts';
+import { Rating } from 'react-native-ratings';
+import io from 'socket.io-client'
 
 //----------------  MAPS ---------------------------------------------------------------
 import MapView, { PROVIDER_GOOGLE, Marker, MAP_TYPES } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import MapViewDirections from 'react-native-maps-directions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Icon from 'react-native-vector-icons/Ionicons';
-import ProgressBar from 'react-native-progress/Bar';
-import { showMessage } from "react-native-flash-message";
-import { Rating } from 'react-native-ratings';
-import io from 'socket.io-client'
 
 
 // UI
@@ -61,7 +66,7 @@ const drivers = [
     }
 ]
 
-export default class Home extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -75,6 +80,7 @@ export default class Home extends Component {
                 latitude: env.location.latitude,
                 longitude: env.location.longitude,
             },
+            places: [],
             handleDestination: false,
             destination: {
                 latitude: env.location.latitude,
@@ -84,15 +90,32 @@ export default class Home extends Component {
                latitude: env.location.latitude,
                 longitude: env.location.longitude, 
             },
+            nearLocation: {},
             searchDestination: false,
             requestTravel: false,
             selectVehicleType: false,
-            waitingDriver: false,
+            waitingDriverList: false,
+            arrivalTime: '',
             driverList: [],
             waitingForDriver: false,
-            setRating: false
+            setRating: false,
+            createLocation: false,
+            deleteLocation: false,
+            deleteLocationId: 0
         }
         this.getCurrentLocation();
+
+        this.getCustomer();
+    }
+
+    getCustomer = () => {
+        axios.get(`${env.API}/customers/${this.props.sessionLogin.user.customer.id}?customer_locations.stored=true`)
+        .then(res => {
+            this.setState({
+                places: res.data.customer_locations
+            });
+        })
+        .catch(error => console.log(error))
     }
 
     componentDidMount() {
@@ -143,25 +166,49 @@ export default class Home extends Component {
         }
     }
 
-    getDestination(location){
-        if(!this.state.waitingForDriver){
-            this.setState({
-                handleDestination: true,
-                driverList: [],
-                destination: {
-                    latitude: location.latitude,
-                    longitude: location.longitude,
-                },
-                region: {
-                ...this.state.region,
+    getDestination(location, suggestion = false){
+        // Vaciar la ubicación cercana
+        this.setState({
+            nearLocation: {},
+            destination: {
                 latitude: location.latitude,
                 longitude: location.longitude,
             }
-            });
-            // Change map center
-            setTimeout(() => {
-                this.map.animateToRegion(this.state.region);
-            }, 250);
+        });
+
+        var nearLocation = null;
+        var minDistance = 1;
+        // Recorrer todas la ubicaciones guardadas para obtener la más proxima
+        this.state.places.map((place) => {
+            let distance = this.getDistance(location.latitude, location.longitude, place.latitude, place.longitude);
+            if(distance < minDistance){
+                minDistance = distance;
+                nearLocation = place;
+            }
+        });
+
+        if(minDistance > 0 && minDistance < 0.2 && !suggestion){
+            nearLocation = {
+                ...nearLocation,
+                distance: minDistance
+            }
+            this.setState({ nearLocation });
+        }else{
+            if(!this.state.waitingForDriver){
+                this.setState({
+                    handleDestination: true,
+                    driverList: [],
+                    region: {
+                        ...this.state.region,
+                        latitude: location.latitude,
+                        longitude: location.longitude,
+                    }
+                });
+                // Change map center
+                setTimeout(() => {
+                    this.map.animateToRegion(this.state.region);
+                }, 150);
+            }
         }
     }
 
@@ -184,13 +231,13 @@ export default class Home extends Component {
     async getDrivers(){
         this.setState({
             selectVehicleType: false,
-            waitingDriver: true
+            waitingDriverList: true
         });
 
         // Simulando generación de lista de conductores
         setTimeout(() => {
             this.setState({
-                waitingDriver: false,
+                waitingDriverList: false,
                 driverList: drivers
             });
 
@@ -223,6 +270,19 @@ export default class Home extends Component {
             type: "success",
             icon: 'success'
         });
+
+        var locationSave = false;
+        this.state.places.map((place) => {
+            if(place.latitude == this.state.destination.latitude && place.longitude == this.state.destination.longitude){
+                locationSave = true;
+            }
+        });
+        
+        setTimeout(() => {
+            if(!locationSave){
+                this.setState({ createLocation: true });
+            }
+        }, 2500);
     }
 
     setRatingTravel = () => {
@@ -238,6 +298,44 @@ export default class Home extends Component {
             type: "success",
             icon: 'success'
         });
+    }
+
+    getDistance = function(lat1,lon1,lat2,lon2){
+        let rad = x => (x * Math.PI/180);
+        let R = 6378.137; //Radio de la tierra en km
+        let dLat = rad( lat2 - lat1 );
+        let dLong = rad( lon2 - lon1 );
+        let a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        let d = R * c;
+        return d.toFixed(3);
+    }
+
+    handleCreateLocation = () => {
+        showMessage({
+            message: "Ubicación agregar",
+            description: `Se agregó el destino a tu lista de ubicaciones frecuentes.`,
+            type: "success",
+            icon: 'success'
+        });
+        this.setState({ createLocation: false })
+    }
+
+    handleDeleteLocation = () => {
+        var location = {};
+        this.state.places.map(place => {
+            if(place.id == this.state.deleteLocationId){
+                location = place;
+            }
+        });
+
+        showMessage({
+            message: "Ubicación eliminada",
+            description: `${location.name} fue eliminada de tu lista de ubicaciones.`,
+            type: "info",
+            icon: 'info'
+        });
+        this.setState({ deleteLocation: false })
     }
  
     render(){
@@ -285,12 +383,20 @@ export default class Home extends Component {
                 {/* My places */}
                 {   !this.state.searchDestination && !this.state.requestTravel && !this.state.waitingForDriver &&
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={ styles.myPlaces } >
-                        <Place title='Casa' onPress={() => {this.getDestination({ latitude: -14.834726, longitude: -64.8806627 })}} />
-                        <Place title='Trabajo' onPress={() => {this.getDestination({ latitude: -14.833129, longitude: -64.880781 })}} />
-                        <Place title='Casa de Julia' onPress={() => {this.getDestination({ latitude: -14.838937, longitude: -64.895833 })}} />
-                        <Place title='Restaurante "El M...' onPress={() => {this.getDestination({ latitude: -14.835234, longitude: -64.921658 })}} />
-                        <Place title='Universidad' onPress={() => {this.getDestination({ latitude: -14.818552, longitude: -64.894643 })}} />
+                        {
+                            this.state.places.map(place => <Place key={place.id} title={place.title} onPress={() => this.getDestination({latitude: parseFloat(place.latitude), longitude: parseFloat(place.longitude)})} onDelete={() => { this.setState({ deleteLocation: true, deleteLocationId: place.id }) }} />)
+                        }
                     </ScrollView>
+                }
+
+                {/* Arrival of the driver */}
+                {this.state.waitingForDriver && 
+                    <View style={ styles.counterContent } >
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 10, color: 'white', marginRight: 5 }}>Llega en </Text>
+                        <Text style={ { fontSize: 20, color: 'white' } }>{ this.state.arrivalTime }</Text>
+                    </View>
+                    </View>
                 }
 
                 {   !this.state.searchDestination &&
@@ -352,8 +458,8 @@ export default class Home extends Component {
                                     latitude: this.state.destination.latitude, longitude: this.state.destination.longitude
                                 }]}
                                 onReady={result => {
-                                    console.log('Distance:' + result.distance.toFixed(2) + ' km')
-                                    console.log('Duration:' + result.duration.toFixed(2) + ' min.')
+                                    // console.log('Distance:' + result.distance.toFixed(2) + ' km')
+                                    // console.log('Duration:' + result.duration.toFixed(2) + ' min.')
                                     this.setState({requestTravel: true, selectVehicleType: true});
                                 }}
                             />
@@ -385,10 +491,7 @@ export default class Home extends Component {
                                 waypoints= {[{ 
                                     latitude: this.state.driver.latitude, longitude: this.state.driver.longitude
                                 }]}
-                                onReady={result => {
-                                    console.log('Distance:' + result.distance.toFixed(2) + ' km')
-                                    console.log('Duration:' + result.duration.toFixed(2) + ' min.')
-                                }}
+                                onReady={ result => this.setState({ arrivalTime: `${result.duration.toFixed(0)} min.` }) }
                             />
                         }
                     </MapView>
@@ -421,7 +524,7 @@ export default class Home extends Component {
                         {/* ======================= */}
 
                         {/* Esperando lista de conductores */}
-                        {   this.state.waitingDriver &&
+                        {   this.state.waitingDriverList &&
                             <View style={{ alignItems: 'center', }}>
                                 <View style={{ backgroundColor: 'white', borderRadius: 5 }}>
                                     <ProgressBar indeterminate width={300} color='#156095' />
@@ -481,6 +584,60 @@ export default class Home extends Component {
                         {/* ======================= */}
                     </View>
                 </Modal>
+
+                {/* Change to near location */}
+                <AwesomeAlert
+                    show={this.state.nearLocation.id ? true : false}
+                    showProgress={false}
+                    title={`${this.state.nearLocation.name} está a ${(this.state.nearLocation.distance*1000).toFixed(0)} m.`}
+                    message="Deseas ir hacia esa ubicación?"
+                    closeOnTouchOutside={false}
+                    closeOnHardwareBackPress={false}
+                    showCancelButton={true}
+                    showConfirmButton={true}
+                    cancelText="Cancelar"
+                    confirmText="Sí, Aceptar"
+                    confirmButtonColor="#3184BE"
+                    cancelButtonColor="#A2A2A2"
+                    onConfirmPressed={ () => this.getDestination({latitude: parseFloat(this.state.nearLocation.latitude), longitude: parseFloat(this.state.nearLocation.longitude)}) }
+                    onCancelPressed={() => this.getDestination({latitude: this.state.destination.latitude, longitude: this.state.destination.longitude}, true) }
+                />
+
+                {/* Save location */}
+                <AwesomeAlert
+                    show={ this.state.createLocation }
+                    showProgress={true}
+                    title={`Agregar ubicación`}
+                    message="Deseas agregar el destino a tu lista de ubicaciones frecuentes?"
+                    closeOnTouchOutside={false}
+                    closeOnHardwareBackPress={false}
+                    showCancelButton={true}
+                    showConfirmButton={true}
+                    cancelText="Cancelar"
+                    confirmText="Sí, agregar"
+                    confirmButtonColor="#3184BE"
+                    cancelButtonColor="#A2A2A2"
+                    onConfirmPressed={ this.handleCreateLocation }
+                    onCancelPressed={ () => this.setState({ createLocation: false }) }
+                />
+
+                {/* Delete save location */}
+                <AwesomeAlert
+                    show={ this.state.deleteLocation }
+                    showProgress={true}
+                    title={`Eliminar ubicación`}
+                    message="Deseas eliminar la ubicación?"
+                    closeOnTouchOutside={false}
+                    closeOnHardwareBackPress={false}
+                    showCancelButton={true}
+                    showConfirmButton={true}
+                    cancelText="Cancelar"
+                    confirmText="Sí, Eliminar"
+                    confirmButtonColor="#C84A28"
+                    cancelButtonColor="#A2A2A2"
+                    onConfirmPressed={ this.handleDeleteLocation }
+                    onCancelPressed={() => this.setState({ deleteLocation: false }) }
+                />
             </SafeAreaView>
         )
     }
@@ -500,12 +657,20 @@ const TypeVehicleButton = (props) => {
 
 const Place = (props) => {
     return(
-        <TouchableOpacity
-            onPress={props.onPress}
-            style={{ paddingHorizontal: 10, paddingVertical: 5, backgroundColor: '#156095', borderRadius: 20, borderWidth: 2, borderColor: 'white', marginHorizontal: 2 }}
-        >
-            <Text style={{ color: 'white' }}>{ props.title }</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', borderWidth: 2, borderColor: 'white', borderRadius: 10, marginHorizontal: 2 }}>
+            <TouchableHighlight
+                onPress={props.onPress}
+                style={{ paddingHorizontal: 10, paddingVertical: 5, backgroundColor: '#156095', borderTopStartRadius: 10, borderBottomStartRadius: 10 }}
+            >
+                <Text style={{ color: 'white' }}>{ props.title }</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+                onPress={props.onDelete}
+                style={{ paddingHorizontal: 10, paddingVertical: 5, backgroundColor: '#105280', borderTopEndRadius: 10, borderBottomEndRadius: 10 }}
+            >
+                <Text style={{ color: 'white', fontWeight: 'bold' }}>x</Text>
+            </TouchableHighlight>
+        </View>
     )
 }
 
@@ -533,5 +698,27 @@ const styles = StyleSheet.create({
         right: 0,
         margin: 0,
         zIndex:1
+    },
+    counterContent: {
+        width: screenWidth,
+        position: 'absolute',
+        bottom: 10,
+        left: 0,
+        right: 0,
+        margin: 0,
+        zIndex:1,
+        backgroundColor: '#12486E',
+        borderWidth: 2,
+        borderColor: 'white',
+        borderRadius: 20,
+        padding: 20
     }
 });
+
+const mapStateToProps = (state) => {
+    return {
+        sessionLogin: state.sessionLogin,
+    }
+}
+
+export default connect(mapStateToProps)(Home);
